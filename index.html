@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR 코드 생성기</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- QR Code 생성용 경량 라이브러리 (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </div>
+      <h1>QR 코드 생성기</h1>
+      <p class="subtitle">URL 또는 텍스트를 입력하면 즉시 QR 코드로 변환됩니다.</p>
+    </div>
+
+    <form id="qr-form" class="form">
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="url-input" 
+          placeholder="예: https://www.google.com" 
+          autocomplete="off" 
+          required 
+        />
+        <button type="submit" id="generate-btn">생성하기</button>
+      </div>
+    </form>
+
+    <div id="result-area" class="result-area hidden">
+      <div class="qr-container">
+        <div id="qrcode"></div>
+      </div>
+      <p id="qr-text" class="qr-text"></p>
+      <div class="action-buttons">
+        <button id="download-btn" class="secondary-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          이미지 다운로드
+        </button>
+        <button id="reset-btn" class="outline-btn">초기화</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
